@@ -1,16 +1,13 @@
 package com.baeldung.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document("users")
 public class Foo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 
     private String name;
 
@@ -24,7 +21,7 @@ public class Foo {
         this.name = name;
     }
 
-    public Foo(final long id, final String name) {
+    public Foo(final String id, final String name) {
         super();
 
         this.id = id;
@@ -36,16 +33,18 @@ public class Foo {
     public String getName() {
         return name;
     }
+    
+    
 
-    public Long getId() {
-        return id;
-    }
+    public String getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public void setName(final String name) {
+	public void setName(final String name) {
         this.name = name;
     }
 
